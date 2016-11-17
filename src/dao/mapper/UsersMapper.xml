@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UsersMapper">
+    <resultMap id="BaseResultMap" type="model.Users">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="pwd" property="pwd" />
+        <result column="nickname" property="nickname" />
+        <result column="headimg" property="headimg" />
+        <result column="createtime" property="createtime" />
+        <result column="modifytime" property="modifytime" />
+        <result column="real_name" property="realName" />
+        <result column="city" property="city" />
+        <result column="gender" property="gender" />
+        <result column="email" property="email" />
+        <result column="addr" property="addr" />
+
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, name, pwd, nickname, headimg, createtime, modifytime, real_name, city, gender, email, addr
+
+    </sql>
+    
+    <select id="selectByPrimaryColumn" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from users
+        where id = #{id}
+    </select>
+  
+    <select id="select" parameterType="model.Users" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from users
+        where 1 = 1
+        <if test="id != null" >
+            and id = #{id}
+        </if>
+        <if test="name != null" >
+            and name = #{name}
+        </if>
+        <if test="pwd != null" >
+            and pwd = #{pwd}
+        </if>
+        <if test="nickname != null" >
+            and nickname = #{nickname}
+        </if>
+        <if test="headimg != null" >
+            and headimg = #{headimg}
+        </if>
+        <if test="createtime != null" >
+            and createtime = #{createtime}
+        </if>
+        <if test="modifytime != null" >
+            and modifytime = #{modifytime}
+        </if>
+        <if test="realName != null" >
+            and real_name = #{realName}
+        </if>
+        <if test="city != null" >
+            and city = #{city}
+        </if>
+        <if test="gender != null" >
+            and gender = #{gender}
+        </if>
+        <if test="email != null" >
+            and email = #{email}
+        </if>
+        <if test="addr != null" >
+            and addr = #{addr}
+        </if>
+
+    </select>
+    
+    <delete id="deleteByPrimaryColumn" parameterType="java.lang.Integer">
+        delete from users where id = #{id}
+    </delete>
+    
+    <insert id="insert" parameterType="model.Users">
+        insert into users (
+            name, pwd, nickname, headimg, createtime, modifytime, real_name, city, gender, email, addr
+
+        )
+        values (
+            #{name}, , #{pwd}, , #{nickname}, , #{headimg}, , #{createtime}, , #{modifytime}, , #{realName}, , #{city}, , #{gender}, , #{email}, , #{addr}, 
+        )
+    </insert>
+  
+    <insert id="insertSelective" parameterType="model.Users">
+        insert into users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="name != null">
+            name,
+        </if>
+        <if test="pwd != null">
+            pwd,
+        </if>
+        <if test="nickname != null">
+            nickname,
+        </if>
+        <if test="headimg != null">
+            headimg,
+        </if>
+        <if test="createtime != null">
+            createtime,
+        </if>
+        <if test="modifytime != null">
+            modifytime,
+        </if>
+        <if test="realName != null">
+            real_name,
+        </if>
+        <if test="city != null">
+            city,
+        </if>
+        <if test="gender != null">
+            gender,
+        </if>
+        <if test="email != null">
+            email,
+        </if>
+        <if test="addr != null">
+            addr,
+        </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="name != null">
+            #{name},
+        </if>
+        <if test="pwd != null">
+            #{pwd},
+        </if>
+        <if test="nickname != null">
+            #{nickname},
+        </if>
+        <if test="headimg != null">
+            #{headimg},
+        </if>
+        <if test="createtime != null">
+            #{createtime},
+        </if>
+        <if test="modifytime != null">
+            #{modifytime},
+        </if>
+        <if test="realName != null">
+            #{realName},
+        </if>
+        <if test="city != null">
+            #{city},
+        </if>
+        <if test="gender != null">
+            #{gender},
+        </if>
+        <if test="email != null">
+            #{email},
+        </if>
+        <if test="addr != null">
+            #{addr},
+        </if>
+
+        </trim>
+    </insert>
+  
+    <update id="updateByPrimaryColumnSelective" parameterType="model.Users">
+        update users
+        <set>
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="pwd != null">
+            pwd = #{pwd},
+        </if>
+        <if test="nickname != null">
+            nickname = #{nickname},
+        </if>
+        <if test="headimg != null">
+            headimg = #{headimg},
+        </if>
+        <if test="createtime != null">
+            createtime = #{createtime},
+        </if>
+        <if test="modifytime != null">
+            modifytime = #{modifytime},
+        </if>
+        <if test="realName != null">
+            real_name = #{realName},
+        </if>
+        <if test="city != null">
+            city = #{city},
+        </if>
+        <if test="gender != null">
+            gender = #{gender},
+        </if>
+        <if test="email != null">
+            email = #{email},
+        </if>
+        <if test="addr != null">
+            addr = #{addr},
+        </if>
+
+        </set>
+        where id = #{id}
+    </update>
+    
+    <update id="updateByPrimaryColumn" parameterType="model.Users">
+        update users
+        set 
+        name = #{name}, 
+        pwd = #{pwd}, 
+        nickname = #{nickname}, 
+        headimg = #{headimg}, 
+        createtime = #{createtime}, 
+        modifytime = #{modifytime}, 
+        real_name = #{realName}, 
+        city = #{city}, 
+        gender = #{gender}, 
+        email = #{email}, 
+        addr = #{addr}
+
+        where id = #{id}
+    </update>
+    
+    <insert id="insertBatch" parameterType="java.util.List">  
+        insert into users (
+                        name, pwd, nickname, headimg, createtime, modifytime, real_name, city, gender, email, addr
+
+        )
+        values 
+        <foreach collection="list" index="index" item="item" separator=",">  
+        (
+        #{item.name}, 
+        #{item.pwd}, 
+        #{item.nickname}, 
+        #{item.headimg}, 
+        #{item.createtime}, 
+        #{item.modifytime}, 
+        #{item.realName}, 
+        #{item.city}, 
+        #{item.gender}, 
+        #{item.email}, 
+        #{item.addr}
+
+        )
+        </foreach>
+    </insert>
+  
+    <update id="updateBatch" parameterType="java.util.List"> 
+        update users
+        set 
+        name = #{name}, 
+        pwd = #{pwd}, 
+        nickname = #{nickname}, 
+        headimg = #{headimg}, 
+        createtime = #{createtime}, 
+        modifytime = #{modifytime}, 
+        real_name = #{realName}, 
+        city = #{city}, 
+        gender = #{gender}, 
+        email = #{email}, 
+        addr = #{addr}
+
+        where id = #{id}
+        <foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">     
+            #{item}
+        </foreach>
+    </update>
+ 
+    <delete id="deleteBatch" parameterType="java.util.List"> 
+        DELETE FROM users WHERE id IN 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">  
+            #{item}  
+        </foreach> 
+    </delete>
+ 
+</mapper>

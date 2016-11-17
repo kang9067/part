@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ActiveMapper">
+    <resultMap id="BaseResultMap" type="model.Active">
+        <id column="id" property="id" />
+        <result column="createTime" property="createTime" />
+        <result column="modifyTime" property="modifyTime" />
+        <result column="time" property="time" />
+        <result column="address" property="address" />
+        <result column="price" property="price" />
+        <result column="introduce" property="introduce" />
+        <result column="ready" property="ready" />
+        <result column="context" property="context" />
+        <result column="uid" property="uid" />
+        <result column="enterTime" property="enterTime" />
+        <result column="enterAddress" property="enterAddress" />
+        <result column="launch" property="launch" />
+        <result column="type" property="type" />
+        <result column="cover" property="cover" />
+        <result column="a_t_id" property="aTId" />
+        <result column="title" property="title" />
+
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+
+    </sql>
+    
+    <select id="selectByPrimaryColumn" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from active
+        where id = #{id}
+    </select>
+  
+    <select id="select" parameterType="model.Active" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from active
+        where 1 = 1
+        <if test="id != null" >
+            and id = #{id}
+        </if>
+        <if test="createTime != null" >
+            and createTime = #{createTime}
+        </if>
+        <if test="modifyTime != null" >
+            and modifyTime = #{modifyTime}
+        </if>
+        <if test="time != null" >
+            and time = #{time}
+        </if>
+        <if test="address != null" >
+            and address = #{address}
+        </if>
+        <if test="price != null" >
+            and price = #{price}
+        </if>
+        <if test="introduce != null" >
+            and introduce = #{introduce}
+        </if>
+        <if test="ready != null" >
+            and ready = #{ready}
+        </if>
+        <if test="context != null" >
+            and context = #{context}
+        </if>
+        <if test="uid != null" >
+            and uid = #{uid}
+        </if>
+        <if test="enterTime != null" >
+            and enterTime = #{enterTime}
+        </if>
+        <if test="enterAddress != null" >
+            and enterAddress = #{enterAddress}
+        </if>
+        <if test="launch != null" >
+            and launch = #{launch}
+        </if>
+        <if test="type != null" >
+            and type = #{type}
+        </if>
+        <if test="cover != null" >
+            and cover = #{cover}
+        </if>
+        <if test="aTId != null" >
+            and a_t_id = #{aTId}
+        </if>
+        <if test="title != null" >
+            and title = #{title}
+        </if>
+
+    </select>
+    
+    <delete id="deleteByPrimaryColumn" parameterType="java.lang.Integer">
+        delete from active where id = #{id}
+    </delete>
+    
+    <insert id="insert" parameterType="model.Active">
+        insert into active (
+            createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+
+        )
+        values (
+            #{createTime}, , #{modifyTime}, , #{time}, , #{address}, , #{price}, , #{introduce}, , #{ready}, , #{context}, , #{uid}, , #{enterTime}, , #{enterAddress}, , #{launch}, , #{type}, , #{cover}, , #{aTId}, , #{title}, 
+        )
+    </insert>
+  
+    <insert id="insertSelective" parameterType="model.Active">
+        insert into active
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="createTime != null">
+            createTime,
+        </if>
+        <if test="modifyTime != null">
+            modifyTime,
+        </if>
+        <if test="time != null">
+            time,
+        </if>
+        <if test="address != null">
+            address,
+        </if>
+        <if test="price != null">
+            price,
+        </if>
+        <if test="introduce != null">
+            introduce,
+        </if>
+        <if test="ready != null">
+            ready,
+        </if>
+        <if test="context != null">
+            context,
+        </if>
+        <if test="uid != null">
+            uid,
+        </if>
+        <if test="enterTime != null">
+            enterTime,
+        </if>
+        <if test="enterAddress != null">
+            enterAddress,
+        </if>
+        <if test="launch != null">
+            launch,
+        </if>
+        <if test="type != null">
+            type,
+        </if>
+        <if test="cover != null">
+            cover,
+        </if>
+        <if test="aTId != null">
+            a_t_id,
+        </if>
+        <if test="title != null">
+            title,
+        </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="createTime != null">
+            #{createTime},
+        </if>
+        <if test="modifyTime != null">
+            #{modifyTime},
+        </if>
+        <if test="time != null">
+            #{time},
+        </if>
+        <if test="address != null">
+            #{address},
+        </if>
+        <if test="price != null">
+            #{price},
+        </if>
+        <if test="introduce != null">
+            #{introduce},
+        </if>
+        <if test="ready != null">
+            #{ready},
+        </if>
+        <if test="context != null">
+            #{context},
+        </if>
+        <if test="uid != null">
+            #{uid},
+        </if>
+        <if test="enterTime != null">
+            #{enterTime},
+        </if>
+        <if test="enterAddress != null">
+            #{enterAddress},
+        </if>
+        <if test="launch != null">
+            #{launch},
+        </if>
+        <if test="type != null">
+            #{type},
+        </if>
+        <if test="cover != null">
+            #{cover},
+        </if>
+        <if test="aTId != null">
+            #{aTId},
+        </if>
+        <if test="title != null">
+            #{title},
+        </if>
+
+        </trim>
+    </insert>
+  
+    <update id="updateByPrimaryColumnSelective" parameterType="model.Active">
+        update active
+        <set>
+        <if test="createTime != null">
+            createTime = #{createTime},
+        </if>
+        <if test="modifyTime != null">
+            modifyTime = #{modifyTime},
+        </if>
+        <if test="time != null">
+            time = #{time},
+        </if>
+        <if test="address != null">
+            address = #{address},
+        </if>
+        <if test="price != null">
+            price = #{price},
+        </if>
+        <if test="introduce != null">
+            introduce = #{introduce},
+        </if>
+        <if test="ready != null">
+            ready = #{ready},
+        </if>
+        <if test="context != null">
+            context = #{context},
+        </if>
+        <if test="uid != null">
+            uid = #{uid},
+        </if>
+        <if test="enterTime != null">
+            enterTime = #{enterTime},
+        </if>
+        <if test="enterAddress != null">
+            enterAddress = #{enterAddress},
+        </if>
+        <if test="launch != null">
+            launch = #{launch},
+        </if>
+        <if test="type != null">
+            type = #{type},
+        </if>
+        <if test="cover != null">
+            cover = #{cover},
+        </if>
+        <if test="aTId != null">
+            a_t_id = #{aTId},
+        </if>
+        <if test="title != null">
+            title = #{title},
+        </if>
+
+        </set>
+        where id = #{id}
+    </update>
+    
+    <update id="updateByPrimaryColumn" parameterType="model.Active">
+        update active
+        set 
+        createTime = #{createTime}, 
+        modifyTime = #{modifyTime}, 
+        time = #{time}, 
+        address = #{address}, 
+        price = #{price}, 
+        introduce = #{introduce}, 
+        ready = #{ready}, 
+        context = #{context}, 
+        uid = #{uid}, 
+        enterTime = #{enterTime}, 
+        enterAddress = #{enterAddress}, 
+        launch = #{launch}, 
+        type = #{type}, 
+        cover = #{cover}, 
+        a_t_id = #{aTId}, 
+        title = #{title}
+
+        where id = #{id}
+    </update>
+    
+    <insert id="insertBatch" parameterType="java.util.List">  
+        insert into active (
+                        createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+
+        )
+        values 
+        <foreach collection="list" index="index" item="item" separator=",">  
+        (
+        #{item.createTime}, 
+        #{item.modifyTime}, 
+        #{item.time}, 
+        #{item.address}, 
+        #{item.price}, 
+        #{item.introduce}, 
+        #{item.ready}, 
+        #{item.context}, 
+        #{item.uid}, 
+        #{item.enterTime}, 
+        #{item.enterAddress}, 
+        #{item.launch}, 
+        #{item.type}, 
+        #{item.cover}, 
+        #{item.aTId}, 
+        #{item.title}
+
+        )
+        </foreach>
+    </insert>
+  
+    <update id="updateBatch" parameterType="java.util.List"> 
+        update active
+        set 
+        createTime = #{createTime}, 
+        modifyTime = #{modifyTime}, 
+        time = #{time}, 
+        address = #{address}, 
+        price = #{price}, 
+        introduce = #{introduce}, 
+        ready = #{ready}, 
+        context = #{context}, 
+        uid = #{uid}, 
+        enterTime = #{enterTime}, 
+        enterAddress = #{enterAddress}, 
+        launch = #{launch}, 
+        type = #{type}, 
+        cover = #{cover}, 
+        a_t_id = #{aTId}, 
+        title = #{title}
+
+        where id = #{id}
+        <foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">     
+            #{item}
+        </foreach>
+    </update>
+ 
+    <delete id="deleteBatch" parameterType="java.util.List"> 
+        DELETE FROM active WHERE id IN 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">  
+            #{item}  
+        </foreach> 
+    </delete>
+ 
+</mapper>
