@@ -8,7 +8,7 @@ public class UsersController extends BaseController{
 	private final static String tpl = "tpl/";
 	
 	@Override
-	protected ModelAndView createView(String path,ModelMap modelMap){
+	public ModelAndView createView(String path,ModelMap modelMap){
 		return super.createView(UsersController.path+path, modelMap);
 	}
 	protected ModelAndView createTlpView(String path,ModelMap modelMap){

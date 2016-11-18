@@ -28,13 +28,15 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object arg2) throws Exception {
 		Users user = (Users) request.getSession().getAttribute("users");
+		
+		
 		if(user == null){
-			
+			//System.out.println("user:nouser");
 			response.sendRedirect("/login-message.html");
 			
 			return false;
 		}
-		
+		System.out.println("user:"+user.getNickname());
 		return true;
 	}
 

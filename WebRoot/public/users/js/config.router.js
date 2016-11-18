@@ -30,7 +30,7 @@ angular.module('app')
                   resolve: {
                     deps: ['$ocLazyLoad',
                       function( $ocLazyLoad ){
-                        return $ocLazyLoad.load(['js/controllers/chart.js']);
+                        return $ocLazyLoad.load(['/public/users/js/controllers/chart.js']);
                     }]
                   }
               })
@@ -40,7 +40,7 @@ angular.module('app')
                   resolve: {
                     deps: ['$ocLazyLoad',
                       function( $ocLazyLoad ){
-                        return $ocLazyLoad.load(['js/controllers/chart.js']);
+                        return $ocLazyLoad.load(['/public/users/js/controllers/chart.js']);
                     }]
                   }
               })
@@ -88,7 +88,7 @@ angular.module('app')
                         function( $ocLazyLoad ){
                           return $ocLazyLoad.load('angularBootstrapNavTree').then(
                               function(){
-                                 return $ocLazyLoad.load('js/controllers/tree.js');
+                                 return $ocLazyLoad.load('/public/users/js/controllers/tree.js');
                               }
                           );
                         }
@@ -103,7 +103,7 @@ angular.module('app')
                         function( $ocLazyLoad){
                           return $ocLazyLoad.load('toaster').then(
                               function(){
-                                 return $ocLazyLoad.load('js/controllers/toaster.js');
+                                 return $ocLazyLoad.load('/public/users/js/controllers/toaster.js');
                               }
                           );
                       }]
@@ -115,7 +115,7 @@ angular.module('app')
                   resolve: {
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad){
-                          return $ocLazyLoad.load('js/controllers/vectormap.js');
+                          return $ocLazyLoad.load('/public/users/js/controllers/vectormap.js');
                       }]
                   }
               })
@@ -136,13 +136,23 @@ angular.module('app')
                       }]
                   }
               })
-              .state('app.chart', {
-                  url: '/chart',
-                  templateUrl: 'tpl/ui_chart.html',
+              .state('app.active', {
+                  url: '/active',
+                  templateUrl: 'active.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad){
-                          return uiLoad.load('js/controllers/chart.js');
+                          return uiLoad.load('/public/users/js/controllers/chart.js');
+                      }]
+                  }
+              })
+               .state('app.pushactive', {
+                  url: '/active',
+                  templateUrl: 'push_active.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad){
+                          return uiLoad.load('/public/users/js/controllers/chart.js');
                       }]
                   }
               })
@@ -349,12 +359,12 @@ angular.module('app')
                       deps: ['$ocLazyLoad', 'uiLoad',
                         function( $ocLazyLoad, uiLoad ){
                           return uiLoad.load(
-                            ['vendor/jquery/fullcalendar/fullcalendar.css',
-                              'vendor/jquery/fullcalendar/theme.css',
-                              'vendor/jquery/jquery-ui-1.10.3.custom.min.js',
-                              'vendor/libs/moment.min.js',
-                              'vendor/jquery/fullcalendar/fullcalendar.min.js',
-                              'js/app/calendar/calendar.js']
+                            ['/public/users/vendor/jquery/fullcalendar/fullcalendar.css',
+                              '/public/users/vendor/jquery/fullcalendar/theme.css',
+                              '/public/users/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
+                              '/public/users/vendor/libs/moment.min.js',
+                              '/public/users/vendor/jquery/fullcalendar/fullcalendar.min.js',
+                              '/public/users/js/app/calendar/calendar.js']
                           ).then(
                             function(){
                               return $ocLazyLoad.load('ui.calendar');
@@ -375,7 +385,7 @@ angular.module('app')
                         function( uiLoad ){
                           return uiLoad.load( ['js/app/mail/mail.js',
                                                'js/app/mail/mail-service.js',
-                                               'vendor/libs/moment.min.js'] );
+                                               '/public/users/vendor/libs/moment.min.js'] );
                       }]
                   }
               })
@@ -454,7 +464,7 @@ angular.module('app')
                       deps: ['uiLoad',
                         function( uiLoad ){
                           return uiLoad.load( ['js/app/note/note.js',
-                                               'vendor/libs/moment.min.js'] );
+                                               '/public/users/vendor/libs/moment.min.js'] );
                       }]
                   }
               })
@@ -478,7 +488,7 @@ angular.module('app')
                               {
                                   name: 'angular-skycons',
                                   files: ['js/app/weather/skycons.js',
-                                          'vendor/libs/moment.min.js', 
+                                          '/public/users/vendor/libs/moment.min.js', 
                                           'js/app/weather/angular-skycons.js',
                                           'js/app/weather/ctrl.js' ] 
                               }

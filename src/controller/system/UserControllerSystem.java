@@ -15,7 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import service.IUsersService;
 import controller.base.SystemController;
-
+/**
+ * 登录注册功能管理界面
+ * @author can xx
+ * 1.登录验证
+ * 2.注册验证
+ * 3.email验证
+ * 4.昵称验证
+ */
 @Controller
 public class UserControllerSystem extends SystemController{
 	

@@ -295,11 +295,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </li>
     </ul>
   </li> -->
-  <li ui-sref-active="active">
-    <a ui-sref="app.chart">
+  <li ui-sref-active="{active:$state.includes('app.ui')}">
+    <a ui-sref="app.active">
       <i class="glyphicon glyphicon-signal"></i>
      <!--  <span translate="aside.nav.components.CHART">参与项目</span> -->
      <span >参与项目</span>
+    </a>
+  </li>
+  <li ui-sref-active="{active:$state.includes('app.ui')}">
+    <a ui-sref="app.pushactive">
+      <i class="glyphicon glyphicon-signal"></i>
+     <!--  <span translate="aside.nav.components.CHART">参与项目</span> -->
+     <span >发布项目</span>
     </a>
   </li>
   <!-- <li ng-class="{active:$state.includes('app.page')}">

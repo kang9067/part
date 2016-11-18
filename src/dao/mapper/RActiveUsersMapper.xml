@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.RActiveUsersMapper">
+    <resultMap id="BaseResultMap" type="model.RActiveUsers">
+        <id column="id" property="id" />
+        <result column="createTime" property="createTime" />
+        <result column="modifyTime" property="modifyTime" />
+        <result column="aid" property="aid" />
+        <result column="uid" property="uid" />
+
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, createTime, modifyTime, aid, uid
+
+    </sql>
+    
+    <select id="selectByPrimaryColumn" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from r_active_users
+        where id = #{id}
+    </select>
+  
+    <select id="select" parameterType="model.RActiveUsers" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from r_active_users
+        where 1 = 1
+        <if test="id != null" >
+            and id = #{id}
+        </if>
+        <if test="createTime != null" >
+            and createTime = #{createTime}
+        </if>
+        <if test="modifyTime != null" >
+            and modifyTime = #{modifyTime}
+        </if>
+        <if test="aid != null" >
+            and aid = #{aid}
+        </if>
+        <if test="uid != null" >
+            and uid = #{uid}
+        </if>
+
+    </select>
+    
+    <delete id="deleteByPrimaryColumn" parameterType="java.lang.Integer">
+        delete from r_active_users where id = #{id}
+    </delete>
+    
+    <insert id="insert" parameterType="model.RActiveUsers">
+        insert into r_active_users (
+            createTime, modifyTime, aid, uid
+
+        )
+        values (
+            #{createTime}, , #{modifyTime}, , #{aid}, , #{uid}, 
+        )
+    </insert>
+  
+    <insert id="insertSelective" parameterType="model.RActiveUsers">
+        insert into r_active_users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="createTime != null">
+            createTime,
+        </if>
+        <if test="modifyTime != null">
+            modifyTime,
+        </if>
+        <if test="aid != null">
+            aid,
+        </if>
+        <if test="uid != null">
+            uid,
+        </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="createTime != null">
+            #{createTime},
+        </if>
+        <if test="modifyTime != null">
+            #{modifyTime},
+        </if>
+        <if test="aid != null">
+            #{aid},
+        </if>
+        <if test="uid != null">
+            #{uid},
+        </if>
+
+        </trim>
+    </insert>
+  
+    <update id="updateByPrimaryColumnSelective" parameterType="model.RActiveUsers">
+        update r_active_users
+        <set>
+        <if test="createTime != null">
+            createTime = #{createTime},
+        </if>
+        <if test="modifyTime != null">
+            modifyTime = #{modifyTime},
+        </if>
+        <if test="aid != null">
+            aid = #{aid},
+        </if>
+        <if test="uid != null">
+            uid = #{uid},
+        </if>
+
+        </set>
+        where id = #{id}
+    </update>
+    
+    <update id="updateByPrimaryColumn" parameterType="model.RActiveUsers">
+        update r_active_users
+        set 
+        createTime = #{createTime}, 
+        modifyTime = #{modifyTime}, 
+        aid = #{aid}, 
+        uid = #{uid}
+
+        where id = #{id}
+    </update>
+    
+    <insert id="insertBatch" parameterType="java.util.List">  
+        insert into r_active_users (
+                        createTime, modifyTime, aid, uid
+
+        )
+        values 
+        <foreach collection="list" index="index" item="item" separator=",">  
+        (
+        #{item.createTime}, 
+        #{item.modifyTime}, 
+        #{item.aid}, 
+        #{item.uid}
+
+        )
+        </foreach>
+    </insert>
+  
+    <update id="updateBatch" parameterType="java.util.List"> 
+        update r_active_users
+        set 
+        createTime = #{createTime}, 
+        modifyTime = #{modifyTime}, 
+        aid = #{aid}, 
+        uid = #{uid}
+
+        where id = #{id}
+        <foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">     
+            #{item}
+        </foreach>
+    </update>
+ 
+    <delete id="deleteBatch" parameterType="java.util.List"> 
+        DELETE FROM r_active_users WHERE id IN 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">  
+            #{item}  
+        </foreach> 
+    </delete>
+ 
+</mapper>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Users;
 import model.base.BaseArgument;
 
 import org.apache.log4j.Logger;
@@ -45,6 +46,13 @@ public class BaseController {
 	}
 	public Integer getParameInt(String name) {
 		return Integer.valueOf(getParameString(name));
+	}
+	public Users getUsersInfo(){
+		return (Users) this.request.getSession().getAttribute("users");
+	}
+	
+	public void setUsersInfo(Users user){
+		this.request.getSession().setAttribute("users", user);
 	}
 /*	protected Object getUserInfo() {
 		return null;
@@ -132,6 +140,7 @@ public class BaseController {
 		log.trace(path);
 		return new ModelAndView(path,modelMap);
 	}
+	
 
 	public void outMessage(Integer msg,String message){
 		String context = "{message:{0},text:'{1}'}";

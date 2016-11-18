@@ -1,6 +1,10 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import util.DateUtil;
 import model.base.BaseModel;
 
 public class Active extends BaseModel implements java.io.Serializable {
@@ -47,6 +51,12 @@ public class Active extends BaseModel implements java.io.Serializable {
     /** title */
     private String title;
 
+    /** agree */
+    private Integer agree;
+
+    /** auther */
+    private String auther;
+
 
 
     /**
@@ -61,6 +71,7 @@ public class Active extends BaseModel implements java.io.Serializable {
      * 设置time 的值
      * @param Date time
      */
+    @com.alibaba.fastjson.annotation.JSONField(format="yyyy-MM-dd HH:mm:ss")
     public Active setTime(Date time) {
         this.time = time;
         return this;
@@ -172,6 +183,7 @@ public class Active extends BaseModel implements java.io.Serializable {
      * 获取 enterTime 的值
      * @return Date
      */
+    @com.alibaba.fastjson.annotation.JSONField(format="yyyy-MM-dd")
     public Date getEnterTime() {
         return enterTime;
     }
@@ -180,8 +192,9 @@ public class Active extends BaseModel implements java.io.Serializable {
      * 设置enterTime 的值
      * @param Date enterTime
      */
-    public Active setEnterTime(Date enterTime) {
-        this.enterTime = enterTime;
+    @com.alibaba.fastjson.annotation.JSONField(format="yyyy-MM-dd")
+    public Active setEnterTime(String enterTime) {
+		this.enterTime = DateUtil.stringToDate(enterTime);
         return this;
     }
 
@@ -287,6 +300,40 @@ public class Active extends BaseModel implements java.io.Serializable {
         return this;
     }
 
+    /**
+     * 获取 agree 的值
+     * @return Integer
+     */
+    public Integer getAgree() {
+        return agree;
+    }
+    
+    /**
+     * 设置agree 的值
+     * @param Integer agree
+     */
+    public Active setAgree(Integer agree) {
+        this.agree = agree;
+        return this;
+    }
+
+    /**
+     * 获取 auther 的值
+     * @return String
+     */
+    public String getAuther() {
+        return auther;
+    }
+    
+    /**
+     * 设置auther 的值
+     * @param String auther
+     */
+    public Active setAuther(String auther) {
+        this.auther = auther;
+        return this;
+    }
+
 
 	public String toString() {
         StringBuffer sb = new StringBuffer();
@@ -308,6 +355,8 @@ public class Active extends BaseModel implements java.io.Serializable {
         sb.append("; cover=" + (cover == null ? "null" : cover.toString()));
         sb.append("; aTId=" + (aTId == null ? "null" : aTId.toString()));
         sb.append("; title=" + (title == null ? "null" : title.toString()));
+        sb.append("; agree=" + (agree == null ? "null" : agree.toString()));
+        sb.append("; auther=" + (auther == null ? "null" : auther.toString()));
 
         return sb.toString();
     }

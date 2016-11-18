@@ -19,11 +19,13 @@
         <result column="cover" property="cover" />
         <result column="a_t_id" property="aTId" />
         <result column="title" property="title" />
+        <result column="agree" property="agree" />
+        <result column="auther" property="auther" />
 
     </resultMap>
     
     <sql id="Base_Column_List">
-        id, createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+        id, createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title, agree, auther
 
     </sql>
     
@@ -90,6 +92,12 @@
         <if test="title != null" >
             and title = #{title}
         </if>
+        <if test="agree != null" >
+            and agree = #{agree}
+        </if>
+        <if test="auther != null" >
+            and auther = #{auther}
+        </if>
 
     </select>
     
@@ -99,11 +107,11 @@
     
     <insert id="insert" parameterType="model.Active">
         insert into active (
-            createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+            createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title, agree, auther
 
         )
         values (
-            #{createTime}, , #{modifyTime}, , #{time}, , #{address}, , #{price}, , #{introduce}, , #{ready}, , #{context}, , #{uid}, , #{enterTime}, , #{enterAddress}, , #{launch}, , #{type}, , #{cover}, , #{aTId}, , #{title}, 
+            #{createTime}, , #{modifyTime}, , #{time}, , #{address}, , #{price}, , #{introduce}, , #{ready}, , #{context}, , #{uid}, , #{enterTime}, , #{enterAddress}, , #{launch}, , #{type}, , #{cover}, , #{aTId}, , #{title}, , #{agree}, , #{auther}, 
         )
     </insert>
   
@@ -158,6 +166,12 @@
         <if test="title != null">
             title,
         </if>
+        <if test="agree != null">
+            agree,
+        </if>
+        <if test="auther != null">
+            auther,
+        </if>
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -208,6 +222,12 @@
         </if>
         <if test="title != null">
             #{title},
+        </if>
+        <if test="agree != null">
+            #{agree},
+        </if>
+        <if test="auther != null">
+            #{auther},
         </if>
 
         </trim>
@@ -264,6 +284,12 @@
         <if test="title != null">
             title = #{title},
         </if>
+        <if test="agree != null">
+            agree = #{agree},
+        </if>
+        <if test="auther != null">
+            auther = #{auther},
+        </if>
 
         </set>
         where id = #{id}
@@ -287,14 +313,16 @@
         type = #{type}, 
         cover = #{cover}, 
         a_t_id = #{aTId}, 
-        title = #{title}
+        title = #{title}, 
+        agree = #{agree}, 
+        auther = #{auther}
 
         where id = #{id}
     </update>
     
     <insert id="insertBatch" parameterType="java.util.List">  
         insert into active (
-                        createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title
+                        createTime, modifyTime, time, address, price, introduce, ready, context, uid, enterTime, enterAddress, launch, type, cover, a_t_id, title, agree, auther
 
         )
         values 
@@ -315,7 +343,9 @@
         #{item.type}, 
         #{item.cover}, 
         #{item.aTId}, 
-        #{item.title}
+        #{item.title}, 
+        #{item.agree}, 
+        #{item.auther}
 
         )
         </foreach>
@@ -339,7 +369,9 @@
         type = #{type}, 
         cover = #{cover}, 
         a_t_id = #{aTId}, 
-        title = #{title}
+        title = #{title}, 
+        agree = #{agree}, 
+        auther = #{auther}
 
         where id = #{id}
         <foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">     

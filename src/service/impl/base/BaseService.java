@@ -1,11 +1,13 @@
 package service.impl.base;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import model.base.BaseArgument;
+import model.base.BaseModel;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.log4j.Logger;
@@ -67,6 +69,9 @@ public class BaseService implements IBaseService {
     @Override 
     public <T> BaseArgument insertSelecitve(T record) {
         BaseArgument br = new BaseArgument();
+        BaseModel base = (BaseModel) record;
+        base.setCreatetime(new Date());
+        base.setModifytime(new Date());
         try {
             int status = dao.insert(getMapper(record, "insertSelective"), record);
             br.setObj(record);
@@ -305,7 +310,7 @@ public class BaseService implements IBaseService {
     public BaseArgument selectByPrimaryKey(Class<?> clasz, Object key) {
         BaseArgument br = new BaseArgument();
         try {
-            Object entity = dao.selectByPrimaryKey(getMapper(clasz, "selectByPrimaryKey"), key);
+            Object entity = dao.selectByPrimaryKey(getMapper(clasz, "selectByPrimaryColumn"), key);
             br.setObj(entity);
             br.setCode(BaseArgument.SUCCESS);
         } catch (Exception e) {

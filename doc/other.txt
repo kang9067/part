@@ -6,3 +6,30 @@
 
 login 使用bootsrap
 users 使用angulrJs
+
+
+
+users
+菜单跳转规则   
+users/tpl/blocks/nav.jsp--> 
+<li ui-sref-active="active">
+    <a ui-sref="app.chart">
+      <i class="glyphicon glyphicon-signal"></i>
+     <!--  <span translate="aside.nav.components.CHART">参与项目</span> -->
+     <span >参与项目</span>
+    </a>
+  </li>
+-->app.chart-->config.router.js-->
+.state('app.chart', {
+      url: '/chart',
+      templateUrl: 'tpl/table_static.html',
+      resolve: {
+          deps: ['uiLoad',
+            function( uiLoad){
+              return uiLoad.load('/public/users/js/controllers/chart.js');
+          }]
+      }
+  })
+  url:显示
+  templateUrl:要跳转的地址
+  

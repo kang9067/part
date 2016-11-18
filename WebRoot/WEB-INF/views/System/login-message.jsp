@@ -20,8 +20,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- jQuery -->
 <script src="<%=basePath %>public/source/login/js/jquery.min.js"></script>
 <!----webfonts--->
-<link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<!---//webfonts--->  
+<!-- <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+ --><!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="<%=basePath %>public/source/login/js/bootstrap.min.js"></script>
 </head>
@@ -32,8 +32,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <h2 class="form-heading">login</h2>
   <div class="app-cam">
 	  <form action="login_chk.html" method="post">
-		<input name="nickname" type="text" class="text" value="nickname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'nickname';}">
-		<input name="pwd" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+		<input name="nickname" type="text" class="text" value="tank" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'nickname';}">
+		<input name="pwd" type="password" value="123456" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 		<div> ${msg} </div>
 		<div class="submit"><input type="submit" value="Login"></div>
 		<div class="login-social-link">

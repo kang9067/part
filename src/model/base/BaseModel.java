@@ -10,6 +10,25 @@ public class BaseModel {
 		return id;
 	}
 
+	public Date getCreatetime() {
+		return createTime;
+	}
+
+	public void setCreatetime(Date createtime) {
+		this.createTime = createtime;
+	}
+
+	public Date getModifytime() {
+		return modifyTime;
+	}
+
+	public void setModifytime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -26,8 +45,5 @@ public class BaseModel {
 		this.modifyTime = modifyTime;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
+
 }

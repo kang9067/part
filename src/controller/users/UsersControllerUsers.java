@@ -9,9 +9,11 @@ import controller.base.UsersController;
 
 @Controller
 @RequestMapping("users")
-public class MessageControllerUsers extends UsersController{
+public class UsersControllerUsers extends UsersController{
 	@RequestMapping("index.html")
 	public ModelAndView index(ModelMap modelMap){
 		return this.createView("index", modelMap);
 	}
+	
+	
 }

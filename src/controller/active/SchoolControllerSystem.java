@@ -14,7 +14,12 @@ import service.IActiveService;
 
 import controller.base.ActiveController;
 import controller.base.BaseController;
-
+/**
+ * 学生活动模块模块
+ * @author can xx
+ * 1.查看学生活动列表
+ * 2.查看更多活动信息
+ */
 @Controller
 @RequestMapping("school")
 public class SchoolControllerSystem extends ActiveController{
@@ -38,7 +43,6 @@ public class SchoolControllerSystem extends ActiveController{
 		modelMap.addAttribute("data", obj);
 		return super.createView("active", modelMap);
 	}
-	
 	
 	
 	

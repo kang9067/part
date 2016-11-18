@@ -17,6 +17,7 @@
          
         <mvc:interceptor>  
             <mvc:mapping path="/users/*.html"/>  
+            <mvc:mapping path="/*_vif.html"/>  
             <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->  
             <bean class="interceptor.LoginInterceptor"/>  
         </mvc:interceptor>  

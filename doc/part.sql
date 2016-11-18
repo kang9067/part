@@ -76,5 +76,8 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
-
+-- ----------------------------
+-- 2016年11月18日14:26:06
+-- ----------------------------
+ALTER TABLE `active`
+ADD COLUMN `auther`  varchar(32) NULL AFTER `agree`;
