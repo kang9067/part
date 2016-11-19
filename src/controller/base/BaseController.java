@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,6 +40,8 @@ public class BaseController {
 		this.request = request;
 		this.response = response;
 		this.session = request.getSession();
+		request.getSession().getServletContext().setAttribute("msg", null);
+		
 	}
 
 	public String getParameString(String name){

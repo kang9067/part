@@ -81,3 +81,5 @@ CREATE TABLE `users` (
 -- ----------------------------
 ALTER TABLE `active`
 ADD COLUMN `auther`  varchar(32) NULL AFTER `agree`;
+ALTER TABLE `users`
+ADD COLUMN `phone`  varchar(16) NULL COMMENT '手机号码' AFTER `addr`;

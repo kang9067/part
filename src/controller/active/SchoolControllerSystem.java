@@ -45,9 +45,6 @@ public class SchoolControllerSystem extends ActiveController{
 	}
 	
 	
-	
-	
-	
 	protected ModelAndView createView(String path,ModelMap modelMap){
 		String tempPath = "school/"+path;
 		System.out.println(tempPath);

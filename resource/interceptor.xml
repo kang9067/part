@@ -13,7 +13,7 @@
                 http://www.springframework.org/schema/mvc  
        			 http://www.springframework.org/schema/mvc/spring-mvc.xsd  "
 	>
-	    <mvc:interceptors>  
+	 <mvc:interceptors>  
          
         <mvc:interceptor>  
             <mvc:mapping path="/users/*.html"/>  
@@ -21,5 +21,9 @@
             <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->  
             <bean class="interceptor.LoginInterceptor"/>  
         </mvc:interceptor>  
+        <mvc:interceptor>
+        	<mvc:mapping path="/register_chk.html"/>  
+        	<bean class="interceptor.RegisterInterceptor"/>  
+        </mvc:interceptor>
     </mvc:interceptors>  
 </beans>

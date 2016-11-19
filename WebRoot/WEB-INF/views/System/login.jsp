@@ -20,8 +20,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- jQuery -->
 <script src="<%=basePath %>public/source/login/js/jquery.min.js"></script>
 <!----webfonts--->
-<link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<!---//webfonts--->  
+<!-- <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+ --><!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="<%=basePath %>public/source/login/js/bootstrap.min.js"></script>
 </head>
@@ -35,24 +35,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<input name="nickname" type="text" class="text" value="nickname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'nickname';}">
 		<input name="pwd" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 		<div> ${msg} </div>
-		<div class="submit"><input type="submit" value="Login"></div>
+		<div class="submit"><button type="submit" class="btn btn-lg btn-success btn-block" >登录</div>
 		<div class="login-social-link">
-         <!--  <a href="index.html" class="facebook">
-              Facebook
-          </a>
-          <a href="index.html" class="twitter">
-              Twitter
-          </a> -->
+			<label>其它方式登录</label>
+       		<div>
+       		
+       		<span id="qqLoginBtn" ></span>
+       		</div>
+       		<script type="text/javascript" 
+       		src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1444" 
+       		data-redirecturi="http://192.168.1.129:9998/login-success.html" charset="utf-8" >
+       		</script>
+
+			<script type="text/javascript">
+			 QC.Login({
+			  btnId : "qqLoginBtn",//插入按钮的html标签id
+			  size : "C_S",//按钮尺寸
+			  scope : "get_user_info",//展示授权，全部可用授权可填 all
+			  display : "pc"//应用场景，可选
+			 });
+			</script>
         </div>
 		<ul class="new">
-			<li class="new_left"><p><a href="#">Forgot Password ?</a></p></li>
-			<li class="new_right"><p class="sign">New here ?<a href="register.html"> Sign Up</a></p></li>
+			<li class="new_left"><p><a href="#">忘记密码 ?</a></p></li>
+			<li class="new_right"><p class="sign">新用户 ?<a href="register.html" style="color:red;font-size:20px;"> 注册</a></p></li>
 			<div class="clearfix"></div>
 		</ul>
 	</form>
   </div>
    <div class="copy_layout login">
-      <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+      <p>Copyright &copy; 2015.Company name All rights reserved。</p>
    </div>
 </body>
 </html>

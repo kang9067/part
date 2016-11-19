@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.IUsersService;
+import util.Md5Util;
 import controller.base.SystemController;
 /**
  * 登录注册功能管理界面
@@ -37,6 +38,7 @@ public class UserControllerSystem extends SystemController{
 	 */
 	@RequestMapping("login_chk.html")
 	public ModelAndView login(Users user,ModelMap modelMap){
+		user.setPwd(Md5Util.getMD5Md5Instant().getMD5ofStr(user.getPwd()));
 		try{
 		Users u = ((ArrayList<Users>)userService.select(user).getRtn().get("data")).get(0);
 		if(u != null){//登录成功
@@ -55,9 +57,10 @@ public class UserControllerSystem extends SystemController{
 	 */
 	@RequestMapping("register_chk.html")
 	public String register(Users user, ModelMap model){
-		BaseArgument arg = new BaseArgument().setObj(user);
-		System.out.println(user.getClass());
-		userService.insertSelecitve(user);
+		user.setPwd(Md5Util.getMD5Md5Instant().getMD5ofStr(user.getPwd()));
+		if(userService.insertSelecitve(user) == null){
+			this.log.info("注册失败");
+		}
 		return this.createRedirectString("index");
 	}
 	/**

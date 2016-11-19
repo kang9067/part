@@ -252,9 +252,9 @@ i.nav_icon {
   border-radius: 20px !important;
   box-shadow: none !important;
 }
-.navbar-form.navbar-right input[type="text"] {
+/* .navbar-form.navbar-right input[type="text"] {
   color: #fff;
-}
+} */
 form.navbar-form.navbar-right {
   margin:9px 0 0 0;
 }
@@ -2059,10 +2059,10 @@ body#login{
   border: none;
   background:#222224;
   margin:0 0 1em 0;
-  border-radius: 2px;
+/*   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  -o-border-radius: 2px;
+  -o-border-radius: 2px; */
 }
 .app-cam input[type="password"] {
   width: 100%;
@@ -2074,10 +2074,10 @@ body#login{
   border: none;
   background:#222224;
   margin:0 0 1em 0;
-  border-radius: 2px;
+/*   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  -o-border-radius: 2px;
+  -o-border-radius: 2px; */
 }
 .app-cam input[type="submit"], .btn-success1{
   font-size: 14px;

@@ -33,3 +33,17 @@ users/tpl/blocks/nav.jsp-->
   url:显示
   templateUrl:要跳转的地址
   
+  
+package util.wangyi;
+  网易短信验证规则
+  curl 
+  -X POST 
+  -H "AppKey: 8d5299abd50fd8bc8425fd5fce1bc761" 
+  -H "CurTime: 1443592222" 
+  -H "CheckSum: 9e9db3b6c9abb2e1962cf3e6f7316fcc55583f86" 
+  -H "Nonce: 4tgggergigwow323t23t" 
+  -H "Content-Type: application/x-www-form-urlencoded" 
+  -d 'mobile=13812345678' 
+  'https://api.netease.im/sms/sendcode.action'
+  
+  
