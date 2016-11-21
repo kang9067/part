@@ -147,12 +147,16 @@ angular.module('app')
                   }
               })
                .state('app.pushactive', {
-                  url: '/active',
+                  url: '/pushactive',
                   templateUrl: 'push_active.html',
                   resolve: {
-                      deps: ['uiLoad',
-                        function( uiLoad){
-                          return uiLoad.load('/public/users/js/controllers/chart.js');
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad){
+                          return $ocLazyLoad.load('ngImgCrop').then(
+                              function(){
+                                 return $ocLazyLoad.load('/public/users/js/controllers/imgcrop.js');
+                              }
+                          );
                       }]
                   }
               })

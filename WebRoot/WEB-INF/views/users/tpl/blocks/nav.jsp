@@ -303,80 +303,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </a>
   </li>
   <li ui-sref-active="{active:$state.includes('app.ui')}">
-    <a ui-sref="app.pushactive">
-      <i class="glyphicon glyphicon-signal"></i>
-     <!--  <span translate="aside.nav.components.CHART">参与项目</span> -->
-     <span >发布项目</span>
-    </a>
+    <a ui-sref="app.pushactive"><i class="glyphicon glyphicon-signal"></i><span >发布项目</span></a>
   </li>
-  <!-- <li ng-class="{active:$state.includes('app.page')}">
-    <a href class="auto">
-      <span class="pull-right text-muted">
-        <i class="fa fa-fw fa-angle-right text"></i>
-        <i class="fa fa-fw fa-angle-down text-active"></i>
-      </span>
-      <i class="glyphicon glyphicon-file icon"></i>
-      <span translate="aside.nav.components.pages.PAGES">Pages</span>
-    </a>
-    <ul class="nav nav-sub dk">
-      <li class="nav-sub-header">
-        <a href>
-          <span translate="aside.nav.components.pages.PAGES">Pages</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.page.profile">
-          <span translate="aside.nav.components.pages.PROFILE">Profile</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.page.post">
-          <span translate="aside.nav.components.pages.POST">Post</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.page.search">
-          <span translate="aside.nav.components.pages.SEARCH">Search</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.page.invoice">
-          <span translate="aside.nav.components.pages.INVOICE">Invoice</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.page.price">
-          <span>Price</span>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="lockme">
-          <span translate="aside.nav.components.pages.LOCK_SCREEN">Lock screen</span>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="access.signin">
-          <span translate="aside.nav.components.pages.SIGNIN">Signin</span>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="access.signup">
-          <span translate="aside.nav.components.pages.SIGNUP">Signup</span>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="access.forgotpwd">
-          <span translate="aside.nav.components.pages.FORGOT_PASSWORD">Forgot password</span>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="access.404">
-          <span translate="aside.nav.components.pages.404">404</span>
-        </a>
-      </li>
-    </ul>
-  </li>
- -->
   <li class="line dk hidden-folded"></li>
 
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">          

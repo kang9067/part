@@ -68,5 +68,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--   <!-- Lazy loading -->
    <script src="<%=basePath %>public/users/l10n/en.js"></script>
  <script src="<%=basePath %>public/users/js/controllers/chart.js"></script> --%>
+ 
 </body>
 </html>
