@@ -25,19 +25,20 @@ public class IndexControllerAdmin extends AdminController{
 	public ModelAndView html(@PathVariable("html") String html){
 		return this.createView(html,null);
 	}
+	@SuppressWarnings("unchecked")
 	@RequestMapping("login_chk.html")
 	public ModelAndView login(
 			Admin admin,
 			ModelMap modelMap
 			){
 		
-		@SuppressWarnings("unchecked")
 		List<Admin> admins = (List<Admin>) adminService.select(admin).getRtn("data");
 		if(admins == null || admins.size() == 0){
 			this.setMsg("登录失败,用户名或者密码错误!");
 			return this.createRedirectView("login",modelMap);
 		}
 		this.request.getSession().setAttribute("users", admins.get(0));
+		
 		return this.createRedirectView("index", modelMap);
 	}
 }

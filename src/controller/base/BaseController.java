@@ -1,6 +1,8 @@
 package controller.base;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,8 +17,11 @@ import model.Users;
 import model.base.BaseArgument;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,6 +47,18 @@ public class BaseController {
 		this.session = request.getSession();
 		this.modelMap = modelMap;
 		request.getSession().getServletContext().setAttribute("msg", null);
+	}
+	/**
+	 * 解决时间问题 
+	 * @param binder
+	 */
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
+	public String getMsg(String key){
+		return (String) request.getSession().getAttribute(key);
 	}
 	public void setMsg(String msg){
 		request.getSession().getServletContext().setAttribute("msg", msg);

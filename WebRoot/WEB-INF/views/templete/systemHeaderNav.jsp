@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -31,21 +32,22 @@ Home
  --></ul>
 </li>
 <li>
-<a href="/users/index.html">
-个人中心
+<a href="#">
+账号
 <div class="sub">
 prosonal
 </div>
 </a>
 <ul>
-<!-- 
-<li><a href="portfolio-1-column.html">1 Column</a></li>
-<li><a href="portfolio-2-columns.html">2 Columns</a></li>
-<li><a href="portfolio-3-columns.html">3 Columns</a></li>
-<li><a href="portfolio-4-columns.html">4 Columns</a></li>
-<li><a href="single-project-half.html">Single Project Half</a></li>
-<li><a href="single-project-wide.html">Single Project Wide</a></li> 
--->
+<c:if test="${!empty users}">
+	<li><a href="/users/index.html">个人中心</a></li>
+	<li><a href="/loginout.html">注销</a></li>
+</c:if>
+<c:if test="${empty users}">
+<li><a href="/login.html">登录</a></li>
+<li><a href="/regiter.html">注册</a></li>
+</c:if>
+
 </ul>
 </li>
 <li>

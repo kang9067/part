@@ -13,4 +13,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="<%=basePath %>public/admin/lib/jquery.validation/1.14.0/messages_zh.min.js"></script> 
 <script type="text/javascript" src="<%=basePath %>public/admin/h-ui/js/H-ui.js"></script> 
 <script type="text/javascript" src="<%=basePath %>public/admin/h-ui.admin/js/H-ui.admin.js"></script> 
-<!--/_footer /作为公共模版分离出去--> 
+<!--/_footer /作为公共模版分离出去-->
+<script type="text/javascript" src="<%=basePath %>public/admin/h-ui.admin/js/comment.js"></script> 

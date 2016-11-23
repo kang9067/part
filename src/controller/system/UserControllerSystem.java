@@ -31,6 +31,12 @@ public class UserControllerSystem extends SystemController{
 	 
 	@Autowired(required=false)
 	private IUsersService userService;
+	@RequestMapping("loginout.html")
+	public String loginout(){
+		//System.out.println(request.getAttribute("referer"));
+		request.getSession().setAttribute("users", null);
+		return this.createRedirectString("index");
+	}
 	/**
 	 * 登录验证
 	 * @param user
@@ -43,6 +49,9 @@ public class UserControllerSystem extends SystemController{
 		Users u = ((ArrayList<Users>)userService.select(user).getRtn().get("data")).get(0);
 		if(u != null){//登录成功
 			this.setUsersInfo(u);
+			if(this.getMsg("referer") != null){
+				return new ModelAndView(this.getMsg("referer"));
+			}
 			return this.createRedirectView("index",modelMap);
 		}}catch (Exception e) {
 		}
@@ -60,6 +69,9 @@ public class UserControllerSystem extends SystemController{
 		user.setPwd(Md5Util.getMD5Md5Instant().getMD5ofStr(user.getPwd()));
 		if(userService.insertSelecitve(user) == null){
 			this.log.info("注册失败");
+		}
+		if(this.getMsg("referer") != null){
+			return "redirect"+this.getMsg("referer");
 		}
 		return this.createRedirectString("index");
 	}

@@ -147,9 +147,7 @@ java
 		modelMap.addAttribute("isWXBrowser", 1);
 		
 https://github.com/kang9067/part.git/
-	
-	
-	
+
 	
 	
 	

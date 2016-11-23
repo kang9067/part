@@ -31,6 +31,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 		
 		if(user == null){
 			//System.out.println("user:nouser");
+			String referer = request.getHeader("Referer");
+			//System.out.println("referer:"+referer);
+			request.getSession().setAttribute("referer", referer);
 			response.sendRedirect("/login-message.html");
 			return false;
 		}

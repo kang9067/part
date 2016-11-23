@@ -23,11 +23,12 @@ public class IndexControllerSystem extends SystemController{
 	public ModelAndView execute(@PathVariable(value="html") String html,ModelMap modelMap){
 		return createView(html, modelMap);
 	}
-	@RequestMapping("index.html")
+	
+	@RequestMapping(value="/")
 	public ModelAndView index(ModelMap modelMap){
-		System.out.println("index.html start!");
 		return createView("index", modelMap);
 	}
+	
 	/*@RequestMapping("register.html")
 	public ModelAndView register(ModelMap modelMap){
 		System.out.println("index.html start!");

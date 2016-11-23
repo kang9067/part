@@ -91,3 +91,20 @@ ALTER TABLE `active`
 MODIFY COLUMN `title`  varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题' AFTER `a_t_id`;
 ALTER TABLE `admin`
 MODIFY COLUMN `id`  int(11) NOT NULL AUTO_INCREMENT FIRST ;
+
+-- ----------------------------
+-- 2016年11月23日16:30:58
+-- ----------------------------
+CREATE TABLE `html` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(24) DEFAULT NULL COMMENT 'key',
+  `value` varchar(256) DEFAULT NULL COMMENT 'value',
+  `desc` text COMMENT '描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+ALTER TABLE `html`
+CHANGE COLUMN `key` `name`  varchar(24) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'key' AFTER `id`,
+CHANGE COLUMN `desc` `beif`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '描述' AFTER `value`;
+
+

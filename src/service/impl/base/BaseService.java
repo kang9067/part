@@ -274,7 +274,7 @@ public class BaseService implements IBaseService {
     public BaseArgument delete(Class<?> clasz, Object key) {
         BaseArgument br = new BaseArgument();
         try {
-            int status = dao.delete(getMapper(clasz, "delete"), key);
+            int status = dao.delete(getMapper(clasz, "deleteByPrimaryColumn"), key);
             br.setCode(status >= 0 ? BaseArgument.SUCCESS : BaseArgument.FAILED);
             br.setNum(status);
         } catch (Exception e) {
