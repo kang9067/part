@@ -83,3 +83,11 @@ ALTER TABLE `active`
 ADD COLUMN `auther`  varchar(32) NULL AFTER `agree`;
 ALTER TABLE `users`
 ADD COLUMN `phone`  varchar(16) NULL COMMENT '手机号码' AFTER `addr`;
+
+-- ----------------------------
+-- 2016年11月22日11:46:10
+-- ----------------------------
+ALTER TABLE `active`
+MODIFY COLUMN `title`  varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题' AFTER `a_t_id`;
+ALTER TABLE `admin`
+MODIFY COLUMN `id`  int(11) NOT NULL AUTO_INCREMENT FIRST ;

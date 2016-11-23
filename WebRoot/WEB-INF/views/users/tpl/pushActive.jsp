@@ -11,7 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div ng-controller="FormDemoCtrl">
     <div class="row">
       <div class="col-sm-12">
-        <form id="form" class="form-validation" action="/users/push_active_chk.html" enctype="multipart/form-data">
+        <form id="form" class="form-validation" enctype="multipart/form-data" 
+        method="post"
+        action="/users/push_active_chk.html" >
           <div class="panel panel-default">
             <div class="panel-heading"><span class="h4">发布活动</span>
             </div>

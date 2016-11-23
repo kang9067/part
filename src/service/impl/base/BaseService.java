@@ -42,9 +42,9 @@ public class BaseService implements IBaseService {
         return "dao."+name + "." + method;
     }
 
-    /**
+   /* *//**
      * 新增记录
-     */
+     *//*
     public <T> BaseArgument insert(T record) {
         BaseArgument br = new BaseArgument();
         try {
@@ -58,7 +58,7 @@ public class BaseService implements IBaseService {
             throw new RuntimeException("新增记录异常：" + e.getMessage());
         }
         return br;
-    }
+    }*/
 
     /**
      * 新增记录
@@ -203,7 +203,7 @@ public class BaseService implements IBaseService {
     public <T> BaseArgument update(T record) {
         BaseArgument br = new BaseArgument();
         try {
-            int status = dao.update(getMapper(record, "update"), record);
+            int status = dao.update(getMapper(record, "updateByPrimaryColumnSelective"), record);
             br.setCode(status > 0 ? BaseArgument.SUCCESS : BaseArgument.FAILED);
             br.setNum(status);
         } catch (Exception e) {

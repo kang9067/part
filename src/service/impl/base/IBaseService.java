@@ -12,7 +12,7 @@ public interface IBaseService {
     /**
      * 插入记录
      */
-    public <T> BaseArgument insert(T record);
+  /*  public <T> BaseArgument insert(T record);*/
 
     /**
      * 插入记录

@@ -31,19 +31,21 @@ public class BaseController {
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	protected HttpSession session;
-	
+	protected ModelMap modelMap;
 	@Resource(name="baseService")
 	public IBaseService baseService;
 	
 	@ModelAttribute
-	public void setReqAndRes(HttpServletRequest request, HttpServletResponse response) {
+	public void setReqAndRes(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) {
 		this.request = request;
 		this.response = response;
 		this.session = request.getSession();
+		this.modelMap = modelMap;
 		request.getSession().getServletContext().setAttribute("msg", null);
-		
 	}
-
+	public void setMsg(String msg){
+		request.getSession().getServletContext().setAttribute("msg", msg);
+	}
 	public String getParameString(String name){
 		return request.getParameter(name);
 	}
@@ -69,7 +71,7 @@ public class BaseController {
 	 * 输出数据到前端
 	 * @param str
 	 */
-	private void outString(String str) {
+	protected void outString(String str) {
         try {
          //   request.setCharacterEncoding("text/html;UTF-8");
             response.setContentType("text/html;charset=UTF-8");

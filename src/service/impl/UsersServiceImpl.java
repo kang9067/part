@@ -34,7 +34,6 @@ public class UsersServiceImpl  extends BaseService implements IUsersService {
         }
         return arg;
     }
-    
     @Override
 	public BaseArgument selectPaging(BaseArgument arg) {
         try {

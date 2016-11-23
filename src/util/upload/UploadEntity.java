@@ -163,6 +163,21 @@ public class UploadEntity {
 	 * @throws Exception
 	 */
 	public String savePhoto(boolean isCompress) throws Exception {
+		return savePhoto(isCompress,900d, 1d);
+	}
+	/**
+	 * 上传图片文件
+	 * @param isCompress
+	 * 		 是否压缩
+	 * @param x
+	 * 		亚索长度
+	 * @param y
+	 * 		亚索高度
+	 * @return
+	 *  	可供web访问的路径(/xxx/xxx.jpg)
+	 * @throws Exception
+	 */
+	public String savePhoto(boolean isCompress,double x,double y) throws Exception {
 
 		// 创建你要保存的文件的路径
 		path = UploadUtil.getPhotoPath(true);
@@ -174,12 +189,11 @@ public class UploadEntity {
 
 		// 判断图片是否压缩
 		if (isCompress) {
-			ImageUtil.scaleCompress(filePath, filePath, 900d, 1d);
+			ImageUtil.scaleCompress(filePath, filePath, x, y);
 		}
 
 		return webURL;
 	}
-
 	/**
 	 * 上传图片文件
 	 * 
