@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SystemMapper">
+    <resultMap id="BaseResultMap" type="model.System">
+        <id column="id" property="id" />
+        <result column="key" property="key" />
+        <result column="value" property="value" />
+        <result column="desc" property="desc" />
+
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, key, value, desc
+
+    </sql>
+    
+    <select id="selectByPrimaryColumn" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from system
+        where id = #{id}
+    </select>
+  
+    <select id="select" parameterType="model.System" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from system
+        where 1 = 1
+        <if test="id != null" >
+            and id = #{id}
+        </if>
+        <if test="key != null" >
+            and key = #{key}
+        </if>
+        <if test="value != null" >
+            and value = #{value}
+        </if>
+        <if test="desc != null" >
+            and desc = #{desc}
+        </if>
+
+    </select>
+    
+    <delete id="deleteByPrimaryColumn" parameterType="java.lang.Integer">
+        delete from system where id = #{id}
+    </delete>
+    
+    <insert id="insert" parameterType="model.System">
+        insert into system (
+            key, value, desc
+
+        )
+        values (
+            #{key}, , #{value}, , #{desc}, 
+        )
+    </insert>
+  
+    <insert id="insertSelective" useGeneratedKeys="true"  keyProperty="id" parameterType="model.System">
+        insert into system
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="key != null">
+            key,
+        </if>
+        <if test="value != null">
+            value,
+        </if>
+        <if test="desc != null">
+            desc,
+        </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="key != null">
+            #{key},
+        </if>
+        <if test="value != null">
+            #{value},
+        </if>
+        <if test="desc != null">
+            #{desc},
+        </if>
+
+        </trim>
+    </insert>
+  
+    <update id="updateByPrimaryColumnSelective" parameterType="model.System">
+        update system
+        <set>
+        <if test="key != null">
+            key = #{key},
+        </if>
+        <if test="value != null">
+            value = #{value},
+        </if>
+        <if test="desc != null">
+            desc = #{desc},
+        </if>
+
+        </set>
+        where id = #{id}
+    </update>
+    
+    <update id="updateByPrimaryColumn" parameterType="model.System">
+        update system
+        set 
+        key = #{key}, 
+        value = #{value}, 
+        desc = #{desc}
+
+        where id = #{id}
+    </update>
+    
+    <insert id="insertBatch" parameterType="java.util.List">  
+        insert into system (
+                        key, value, desc
+
+        )
+        values 
+        <foreach collection="list" index="index" item="item" separator=",">  
+        (
+        #{item.key}, 
+        #{item.value}, 
+        #{item.desc}
+
+        )
+        </foreach>
+    </insert>
+  
+    <update id="updateBatch" parameterType="java.util.List"> 
+        update system
+        set 
+        key = #{key}, 
+        value = #{value}, 
+        desc = #{desc}
+
+        where id = #{id}
+        <foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">     
+            #{item}
+        </foreach>
+    </update>
+ 
+    <delete id="deleteBatch" parameterType="java.util.List"> 
+        DELETE FROM system WHERE id IN 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">  
+            #{item}  
+        </foreach> 
+    </delete>
+ 
+</mapper>
