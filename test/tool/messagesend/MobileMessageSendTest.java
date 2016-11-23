@@ -26,4 +26,10 @@ public class MobileMessageSendTest {
 			e.printStackTrace();
 		}
 	}
+	@Test
+	public void test2(){
+		TestJDBC j = new TestJDBC("");
+		System.out.println("1");
+		System.out.println(j.getConn());
+	}
 }
