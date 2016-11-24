@@ -107,4 +107,16 @@ ALTER TABLE `html`
 CHANGE COLUMN `key` `name`  varchar(24) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'key' AFTER `id`,
 CHANGE COLUMN `desc` `beif`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '描述' AFTER `value`;
 
+-- ----------------------------
+-- 2016年11月24日12:11:42
+-- ----------------------------
+CREATE TABLE `r_active_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `createTime` datetime DEFAULT NULL,
+  `modifyTime` datetime DEFAULT NULL,
+  `aid` int(11) DEFAULT NULL,
+  `uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
 

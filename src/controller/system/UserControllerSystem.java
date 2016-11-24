@@ -68,10 +68,14 @@ public class UserControllerSystem extends SystemController{
 	public String register(Users user, ModelMap model){
 		user.setPwd(Md5Util.getMD5Md5Instant().getMD5ofStr(user.getPwd()));
 		if(userService.insertSelecitve(user) == null){
-			this.log.info("注册失败");
+			UserControllerSystem.log.info("注册失败");
+			System.out.println("注册失败");
+		}else{
+			UserControllerSystem.log.info("注册成功");
+			System.out.println("注册成功");
 		}
 		if(this.getMsg("referer") != null){
-			return "redirect"+this.getMsg("referer");
+			return "redirect:"+this.getMsg("referer");
 		}
 		return this.createRedirectString("index");
 	}
